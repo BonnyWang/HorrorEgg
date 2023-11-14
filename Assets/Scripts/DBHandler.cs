@@ -45,11 +45,33 @@ public class DBHandler : MonoBehaviour
             Debug.Log(playerInfo.Scared);
             if(playerInfo.Scared){
                 uDPPluginScript.shake = 4003000050.ToString();
-            }else{
-                uDPPluginScript.shake = 1003000051.ToString();
+                    StartCoroutine(reset());
             }
-          }
+
+            if (playerInfo.InElevator)
+            {
+                uDPPluginScript.shake = 2003000050.ToString();
+            }
+            else
+            {
+                uDPPluginScript.shake = 0003000051.ToString();
+            }
+
+
+
+         }
           
         };
     }
+
+
+    IEnumerator reset()
+    {
+        yield return new WaitForSeconds(0.5f);
+        uDPPluginScript.shake = 0003000050.ToString();
+
+    }
+
+
+    
 }
