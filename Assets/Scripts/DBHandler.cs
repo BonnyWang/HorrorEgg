@@ -43,18 +43,22 @@ public class DBHandler : MonoBehaviour
           if (e2.Snapshot != null && e2.Snapshot.ChildrenCount > 0) {
             PlayerInfo playerInfo = PlayerInfo.CreateFromJSON(e2.Snapshot.Child("instance").GetRawJsonValue());
             Debug.Log(playerInfo.Scared);
-            if(playerInfo.Scared){
-                uDPPluginScript.shake = 4003000050.ToString();
-                    StartCoroutine(reset());
-            }
-
-            if (playerInfo.InElevator)
+            if (playerInfo.Scared)
             {
-                uDPPluginScript.shake = 2003000050.ToString();
+                uDPPluginScript.shake = 4003000050.ToString();
+                StartCoroutine(reset());
             }
             else
             {
-                uDPPluginScript.shake = 0003000051.ToString();
+
+                if (playerInfo.InElevator)
+                {
+                    uDPPluginScript.shake = 2003000050.ToString();
+                }
+                else
+                {
+                    uDPPluginScript.shake = 0003000051.ToString();
+                }
             }
 
 
@@ -68,7 +72,7 @@ public class DBHandler : MonoBehaviour
     IEnumerator reset()
     {
         yield return new WaitForSeconds(0.5f);
-        uDPPluginScript.shake = 0003000050.ToString();
+        uDPPluginScript.shake = 0003000051.ToString();
 
     }
 

@@ -211,7 +211,7 @@ MonoBehaviour:
   obj: {fileID: 6764762597254836348}
   maxTurnSpeed: 2.0943947
   height: 10
-  shake: 2003000050
+  shake: 0003000050
 --- !u!33 &6764762597254836320
 MeshFilter:
   m_ObjectHideFlags: 0
