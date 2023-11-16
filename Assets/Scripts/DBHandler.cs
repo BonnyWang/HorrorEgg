@@ -49,17 +49,19 @@ public class DBHandler : MonoBehaviour
             {
                 StartCoroutine(rotate());
             }
+        
+            if(playerInfo.ToBase){
+                StartCoroutine(transitToBase());
+            }
+
+
+            if (playerInfo.InElevator)
+            {
+                uDPPluginScript.shake = 2003000050.ToString();
+            }
             else
             {
-
-                if (playerInfo.InElevator)
-                {
-                    uDPPluginScript.shake = 2003000050.ToString();
-                }
-                else
-                {
-                    uDPPluginScript.shake = 0003000051.ToString();
-                }
+                uDPPluginScript.shake = 0003000051.ToString();
             }
 
 
@@ -70,10 +72,16 @@ public class DBHandler : MonoBehaviour
     }
 
 
-    IEnumerator reset()
-    {
-        yield return new WaitForSeconds(0.5f);
-        uDPPluginScript.shake = 0003000051.ToString();
+    IEnumerator transitToBase(){
+        uDPPluginScript.maxTurnSpeed = 2f;
+        eggChair.Rotate(0, 180, 0);
+        yield return new WaitForSeconds(1.5f);
+
+        eggChair.Rotate(-30,0,0);
+
+        yield return new WaitForSeconds(2f);
+
+        eggChair.Rotate(30,0,0);
 
     }
 
