@@ -9,6 +9,8 @@ public class DBHandler : MonoBehaviour
     public static DBHandler instance;
     public DatabaseReference PlayerRef;
     [SerializeField] UDPPluginScript uDPPluginScript;
+    [SerializeField] Transform eggChair;
+    [SerializeField] float rotateDuration;
     void Start()
     {
         if (instance == null)
@@ -45,8 +47,7 @@ public class DBHandler : MonoBehaviour
             Debug.Log(playerInfo.Scared);
             if (playerInfo.Scared)
             {
-                uDPPluginScript.shake = 4003000050.ToString();
-                StartCoroutine(reset());
+                StartCoroutine(rotate());
             }
             else
             {
@@ -73,6 +74,17 @@ public class DBHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         uDPPluginScript.shake = 0003000051.ToString();
+
+    }
+
+    IEnumerator rotate()
+    {
+
+        uDPPluginScript.maxTurnSpeed = 0.5f;
+        eggChair.Rotate(0, 60, 0);
+        yield return new WaitForSeconds(1f);
+        uDPPluginScript.maxTurnSpeed = 2f;
+        eggChair.Rotate(0, 120f, 0);
 
     }
 
