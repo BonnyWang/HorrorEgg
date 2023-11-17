@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
+using UnityEngine.Playables;
 
 public class DBHandler : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class DBHandler : MonoBehaviour
     [SerializeField] UDPPluginScript uDPPluginScript;
     [SerializeField] Transform eggChair;
     [SerializeField] float rotateDuration;
+
+    [SerializeField] PlayableDirector scaredDirector;
+    [SerializeField] PlayableDirector elevatorDirector;
     void Start()
     {
         if (instance == null)
@@ -32,6 +36,9 @@ public class DBHandler : MonoBehaviour
 
     void initialization(){
         PlayerRef = FirebaseDatabase.DefaultInstance.GetReference("Player");
+
+        eggChair.rotation = Quaternion.identity;
+
         StartListener(transform);
 
     }
@@ -47,7 +54,7 @@ public class DBHandler : MonoBehaviour
             Debug.Log(playerInfo.Scared);
             if (playerInfo.Scared)
             {
-                StartCoroutine(rotate());
+                scaredDirector.Play();
             }
         
             if(playerInfo.ToBase){
@@ -57,11 +64,7 @@ public class DBHandler : MonoBehaviour
 
             if (playerInfo.InElevator)
             {
-                uDPPluginScript.shake = "2003000050";
-            }
-            else
-            {
-                uDPPluginScript.shake = "0003000051";
+                    elevatorDirector.Play();
             }
 
 
@@ -96,6 +99,9 @@ public class DBHandler : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        eggChair.rotation = Quaternion.identity;
+    }
 
-    
 }
