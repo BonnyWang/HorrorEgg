@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uDPPluginScript: {fileID: 114640655793626834}
+  eggChair: {fileID: 6764762597254836321}
+  rotateDuration: 0
 --- !u!4 &1473263269
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +167,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1925487021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925487023}
+  - component: {fileID: 1925487022}
+  - component: {fileID: 1925487024}
+  m_Layer: 0
+  m_Name: Director
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1925487022
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925487021}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 5c17303e18917bb4d99f78dd8eac2683, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -848178404766041461, guid: 5c17303e18917bb4d99f78dd8eac2683, type: 2}
+    value: {fileID: 1925487024}
+  - key: {fileID: 5468667139958916211, guid: 5c17303e18917bb4d99f78dd8eac2683, type: 2}
+    value: {fileID: 6764762597254836349}
+  - key: {fileID: -7160699320460151643, guid: 5c17303e18917bb4d99f78dd8eac2683, type: 2}
+    value: {fileID: 1328640695503009}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1925487023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925487021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7708888, y: -1.7450459, z: -2.1148517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1925487024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925487021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1328640695503008
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4224352720774600}
   - component: {fileID: 114640655793626834}
+  - component: {fileID: 1328640695503009}
   m_Layer: 0
   m_Name: SDK_SEAT
   m_TagString: Untagged
@@ -182,6 +259,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &1328640695503009
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328640695503008}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ade8c8f7d12dea040ab59b221984acae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &4224352720774600
 Transform:
   m_ObjectHideFlags: 0
@@ -211,7 +307,10 @@ MonoBehaviour:
   obj: {fileID: 6764762597254836348}
   maxTurnSpeed: 2.0943947
   height: 10
-  shake: 0003000050
+  shakeAmplitude: 40
+  shakeTimeOneTime: 50
+  shakeTime: 50
+  shake: 2050000050
 --- !u!33 &6764762597254836320
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -227,7 +326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6764762597254836348}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.47842798, z: -0, w: 0.87812686}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -246,6 +345,7 @@ GameObject:
   - component: {fileID: 6764762597254836320}
   - component: {fileID: 6764762597254836351}
   - component: {fileID: 6764762597254836350}
+  - component: {fileID: 6764762597254836349}
   m_Layer: 0
   m_Name: Egg Chair Transform
   m_TagString: Chair
@@ -253,6 +353,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &6764762597254836349
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764762597254836348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &6764762597254836350
 BoxCollider:
   m_ObjectHideFlags: 0

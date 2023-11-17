@@ -100,6 +100,9 @@ public class UDPPluginScript : MonoBehaviour
 
     [SerializeField]
     public int height = 0;
+    public int shakeAmplitude;
+    public int shakeTimeOneTime;
+    public int shakeTime;
     public string shake;//it need to be aabbeeeeee, aa = 1~40 stands for the height bb = 0~99 stand for the time for a shake time = bb*2*20 ms;eeeeee stand for the last time,eeeeee*100 ms;
     string setDofData(float pitch, float roll, float yaw)
     {
@@ -139,6 +142,8 @@ public class UDPPluginScript : MonoBehaviour
         data += "t";
         data += string.Format("{0:D12}", 0);
         data += "d";
+
+        shake = shakeAmplitude.ToString("00") + shakeTimeOneTime.ToString() + "0000" + shakeTime.ToString();
         data += string.Format("{0:D10}", shake);
         return data;
     }

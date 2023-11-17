@@ -57,11 +57,11 @@ public class DBHandler : MonoBehaviour
 
             if (playerInfo.InElevator)
             {
-                uDPPluginScript.shake = 2003000050.ToString();
+                uDPPluginScript.shake = "2003000050";
             }
             else
             {
-                uDPPluginScript.shake = 0003000051.ToString();
+                uDPPluginScript.shake = "0003000051";
             }
 
 
