@@ -15,6 +15,9 @@ public class DBHandler : MonoBehaviour
 
     [SerializeField] PlayableDirector scaredDirector;
     [SerializeField] PlayableDirector elevatorDirector;
+
+
+    float curretnRY;
     void Start()
     {
         if (instance == null)
@@ -26,6 +29,7 @@ public class DBHandler : MonoBehaviour
         }
 
         initialization();
+        curretnRY = 0;
     }
 
     // Update is called once per frame
@@ -66,6 +70,16 @@ public class DBHandler : MonoBehaviour
             {
                     elevatorDirector.Play();
             }
+
+            
+
+            Quaternion targetQ = new Quaternion();
+            targetQ = Quaternion.Euler(playerInfo.RX, playerInfo.RY, playerInfo.RZ);
+            eggChair.rotation = targetQ;
+            curretnRY = playerInfo.RY;
+            
+
+
 
 
 
