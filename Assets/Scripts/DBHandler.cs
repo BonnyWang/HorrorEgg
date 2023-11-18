@@ -74,7 +74,7 @@ public class DBHandler : MonoBehaviour
             
 
             Quaternion targetQ = new Quaternion();
-            targetQ = Quaternion.Euler(playerInfo.RX, playerInfo.RY, playerInfo.RZ);
+            targetQ = Quaternion.Euler(playerInfo.RX*2, playerInfo.RY, playerInfo.RZ*2);
             eggChair.rotation = targetQ;
             curretnRY = playerInfo.RY;
             
