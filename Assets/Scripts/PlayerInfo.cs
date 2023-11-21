@@ -10,6 +10,8 @@ public class PlayerInfo
     public float RX;
     public float RY;
     public float RZ;
+    public int Shake;
+    public int Height;
 
     public static PlayerInfo CreateFromJSON(string jsonString){
         return JsonUtility.FromJson<PlayerInfo>(jsonString);

@@ -66,10 +66,6 @@ public class DBHandler : MonoBehaviour
             }
 
 
-            if (playerInfo.InElevator)
-            {
-                    elevatorDirector.Play();
-            }
 
             
 
@@ -77,9 +73,9 @@ public class DBHandler : MonoBehaviour
             targetQ = Quaternion.Euler(playerInfo.RX*2, playerInfo.RY, playerInfo.RZ*2);
             eggChair.rotation = targetQ;
             curretnRY = playerInfo.RY;
-            
 
-
+            uDPPluginScript.shakeAmplitude = playerInfo.Shake;
+            uDPPluginScript.height = playerInfo.Height;
 
 
 
